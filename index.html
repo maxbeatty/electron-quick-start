@@ -9,5 +9,19 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+
+    <button id="openNewWindow">Open new window</button>
+
+    <script>
+    document.getElementById('openNewWindow').addEventListener('click', function () {
+      console.log('opening popup...')
+      windowObjectReference = window.open('popup.html', Date.now(), "width=400,height=300")
+
+      setTimeout(function () {
+        console.log('blurring opened window...')
+        windowObjectReference.blur()
+      }, 2000)
+    })
+    </script>
   </body>
 </html>
